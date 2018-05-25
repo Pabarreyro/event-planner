@@ -115,6 +115,8 @@ public class Event {
         Integer foodSubtotal = 0;
         Integer drinkSubtotal = 0;
         Integer entertainmentSubtotal = 0;
+        Integer flatDiscount = 0;
+        Double proportionalDiscount = 1.0;
         for (String food : this.food) {
             foodSubtotal += this.getFoodPrices(food);
         }
@@ -124,7 +126,15 @@ public class Event {
         for (String entertainment: this.entertainment) {
             entertainmentSubtotal += this.getEntertainmentPrices(entertainment);
         }
-        this.price = ((200 + foodSubtotal + drinkSubtotal) * guestMultiplier) + entertainmentSubtotal;
+        if (this.coupon != "none"){
+            if (flatDiscounts.containsKey(this.coupon)) {
+                flatDiscount += this.flatDiscounts.get(this.coupon);
+            } else {
+                proportionalDiscount -= this.proportionalDiscounts.get(this.coupon);
+            }
+        }
+        Double subtotal = Math.floor((((200 + foodSubtotal + drinkSubtotal) * guestMultiplier) + entertainmentSubtotal - flatDiscount) * proportionalDiscount);
+        this.price = subtotal.intValue();
     }
 
     public Integer getPrice() {

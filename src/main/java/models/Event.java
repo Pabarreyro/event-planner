@@ -47,4 +47,12 @@ public class Event {
     public List<String> getDrink() {
         return drink;
     }
+
+    public void setEntertainment(String entertainment) {
+        this.entertainment.add(entertainment);
+    }
+
+    public List<String> getEntertainment() {
+        return entertainment;
+    }
 }

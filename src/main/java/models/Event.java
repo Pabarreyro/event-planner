@@ -48,14 +48,17 @@ public class Event {
         put("party animal", 0.4);
     }};
 
-    public Event(String name) {
-        this.name = name;
+    public Event() {
         this.food = new ArrayList<>();
         this.drink = new ArrayList<>();
         this.entertainment = new ArrayList<>();
         this.price = 200;
         this.coupon = "none";
 
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -94,37 +97,37 @@ public class Event {
         return entertainment;
     }
 
-    public Integer getGuestPrice(String key) {
-        return guestPrices.get(key);
+    public Map<String, Integer> getGuestPrices() {
+        return guestPrices;
     }
 
-    public Integer getFoodPrices(String key) {
-        return foodPrices.get(key);
+    public Map<String, Integer> getFoodPrices() {
+        return foodPrices;
     }
 
-    public Integer getDrinkPrices(String key) {
-        return drinkPrices.get(key);
+    public Map<String, Integer> getDrinkPrices() {
+        return drinkPrices;
     }
 
-    public Integer getEntertainmentPrices(String key) {
-        return entertainmentPrices.get(key);
+    public Map<String, Integer> getEntertainmentPrices() {
+        return entertainmentPrices;
     }
 
     public void setPrice() {
-        Integer guestMultiplier = this.getGuestPrice(this.guests);
+        Integer guestMultiplier = this.guestPrices.get(this.guests);
         Integer foodSubtotal = 0;
         Integer drinkSubtotal = 0;
         Integer entertainmentSubtotal = 0;
         Integer flatDiscount = 0;
         Double proportionalDiscount = 1.0;
         for (String food : this.food) {
-            foodSubtotal += this.getFoodPrices(food);
+            foodSubtotal += this.foodPrices.get(food);
         }
         for (String drink: this.drink) {
-            drinkSubtotal += this.getDrinkPrices(drink);
+            drinkSubtotal += this.drinkPrices.get(drink);
         }
         for (String entertainment: this.entertainment) {
-            entertainmentSubtotal += this.getEntertainmentPrices(entertainment);
+            entertainmentSubtotal += this.entertainmentPrices.get(entertainment);
         }
         if (this.coupon != "none"){
             if (flatDiscounts.containsKey(this.coupon)) {

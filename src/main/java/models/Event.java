@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Event {
     private String name;
-    private Integer guests;
+    private String guests;
     private List<String> food;
     private List<String> drink;
     private List<String> entertainment;
@@ -16,5 +16,13 @@ public class Event {
 
     public String getName() {
         return name;
+    }
+
+    public void setGuests(String guests) {
+        this.guests = guests;
+    }
+
+    public String getGuests() {
+        return guests;
     }
 }

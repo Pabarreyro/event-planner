@@ -130,4 +130,14 @@ public class Event {
     public Integer getPrice() {
         return price;
     }
+
+    public String getCoupon() {
+        return coupon;
+    }
+
+    public void setCoupon(String coupon) {
+        if (flatDiscounts.containsKey(coupon) || proportionalDiscounts.containsKey(coupon)){
+            this.coupon = coupon;
+        }
+    }
 }

@@ -118,4 +118,33 @@ public class EventTest {
         testEvent.setCoupon("I'm a fraud");
         assertEquals("none", testEvent.getCoupon());
     }
+
+    @Test
+    public void setPrice_doesNotApplyDiscountWhenCouponAbsent_400() {
+        Event testEvent = new Event("test");
+        Integer testPrice = 400;
+        testEvent.setGuests("50-100");
+        testEvent.setPrice();
+        assertEquals(testPrice, testEvent.getPrice());
+    }
+
+    @Test
+    public void setPrice_appliesValidFlatDiscountToPrice_550() {
+        Event testEvent = new Event("test");
+        Integer testPrice = 550;
+        testEvent.setGuests("150-200");
+        testEvent.setCoupon("party on");
+        testEvent.setPrice();
+        assertEquals(testPrice, testEvent.getPrice());
+    }
+
+    @Test
+    public void setPrice_appliesValidProportionalDiscountToPrice_320() {
+        Event testEvent = new Event("test");
+        Integer testPrice = 320;
+        testEvent.setGuests("50-100");
+        testEvent.setCoupon("coming out");
+        testEvent.setPrice();
+        assertEquals(testPrice, testEvent.getPrice());
+    }
 }

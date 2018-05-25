@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Event {
@@ -12,6 +13,11 @@ public class Event {
 
     public Event(String name) {
         this.name = name;
+        this.food = new ArrayList<>();
+        this.drink = new ArrayList<>();
+        this.entertainment = new ArrayList<>();
+        this.price = 200;
+
     }
 
     public String getName() {
@@ -24,5 +30,13 @@ public class Event {
 
     public String getGuests() {
         return guests;
+    }
+
+    public void setFood(String food) {
+        this.food.add(food);
+    }
+
+    public List<String> getFood() {
+        return food;
     }
 }

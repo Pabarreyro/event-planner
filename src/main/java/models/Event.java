@@ -12,6 +12,7 @@ public class Event {
     private List<String> drink;
     private List<String> entertainment;
     private Integer price;
+    private String coupon;
 
     private Map<String, Integer> guestPrices = new HashMap<String, Integer>() {{
         put("0-50", 1);
@@ -37,12 +38,23 @@ public class Event {
         put("live band", 1200);
     }};
 
+    private Map<String, Integer> flatDiscounts = new HashMap<String, Integer>() {{
+        put("party on", 250);
+        put("high roller", 500);
+    }};
+
+    private Map<String, Double> proportionalDiscounts = new HashMap<String, Double>() {{
+        put("coming out", 0.2);
+        put("party animal", 0.4);
+    }};
+
     public Event(String name) {
         this.name = name;
         this.food = new ArrayList<>();
         this.drink = new ArrayList<>();
         this.entertainment = new ArrayList<>();
         this.price = 200;
+        this.coupon = "none";
 
     }
 

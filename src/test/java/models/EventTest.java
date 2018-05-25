@@ -19,9 +19,17 @@ public class EventTest {
     }
 
     @Test
-    public void setFood_setsGuestFoodCorrectly_horsDoeuvres() {
+    public void setFood_setsSingleFoodRequestCorrectly_horsDoeuvres() {
         Event testEvent = new Event("test");
         testEvent.setFood("hors d'oeuvres");
         assertEquals("hors d'oeuvres", testEvent.getFood().get(0));
+    }
+
+    @Test
+    public void setFood_setsMultipleFoodRequestsCorrectly_2() {
+        Event testEvent = new Event("test");
+        testEvent.setFood("hors d'oeuvres");
+        testEvent.setFood("buffet");
+        assertEquals(2, testEvent.getFood().size());
     }
 }

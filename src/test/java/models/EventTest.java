@@ -129,9 +129,9 @@ public class EventTest {
     }
 
     @Test
-    public void setPrice_appliesValidFlatDiscountToPrice_550() {
+    public void setPrice_appliesValidFlatDiscountToPrice_750() {
         Event testEvent = new Event("test");
-        Integer testPrice = 550;
+        Integer testPrice = 750;
         testEvent.setGuests("150-200");
         testEvent.setCoupon("party on");
         testEvent.setPrice();

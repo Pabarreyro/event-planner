@@ -39,8 +39,8 @@ public class Event {
     }};
 
     private Map<String, Integer> flatDiscounts = new HashMap<String, Integer>() {{
-        put("party on", 250);
-        put("high roller", 500);
+        put("party on", 50);
+        put("high roller", 100);
     }};
 
     private Map<String, Double> proportionalDiscounts = new HashMap<String, Double>() {{
@@ -133,7 +133,7 @@ public class Event {
                 proportionalDiscount -= this.proportionalDiscounts.get(this.coupon);
             }
         }
-        Double subtotal = Math.floor((((200 + foodSubtotal + drinkSubtotal) * guestMultiplier) + entertainmentSubtotal - flatDiscount) * proportionalDiscount);
+        Double subtotal = Math.floor(((((200 * proportionalDiscount) + foodSubtotal + drinkSubtotal) * guestMultiplier) + entertainmentSubtotal - flatDiscount));
         this.price = subtotal.intValue();
     }
 

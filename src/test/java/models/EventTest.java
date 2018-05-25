@@ -17,4 +17,11 @@ public class EventTest {
         testEvent.setGuests("0-25");
         assertEquals("0-25", testEvent.getGuests());
     }
+
+    @Test
+    public void setFood_setsGuestFoodCorrectly_horsDoeuvres() {
+        Event testEvent = new Event("test");
+        testEvent.setFood("hors d'oeuvres");
+        assertEquals("hors d'oeuvres", testEvent.getFood().get(0));
+    }
 }

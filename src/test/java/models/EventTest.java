@@ -66,8 +66,19 @@ public class EventTest {
     @Test
     public void setPrice_setsPriceBasedOnGuests_400() {
         Event testEvent = new Event("test");
-        Integer testPrice = new Integer(400);
+        Integer testPrice = 400;
         testEvent.setGuests("50-100");
+        testEvent.setPrice();
+        assertEquals(testPrice, testEvent.getPrice());
+    }
+
+    @Test
+    public void setPrice_setsPriceBasedOnFood_3400() {
+        Event testEvent = new Event("test");
+        Integer testPrice = 3400;
+        testEvent.setGuests("50-100");
+        testEvent.setFood("hors d'oeuvres");
+        testEvent.setFood("buffet");
         testEvent.setPrice();
         assertEquals(testPrice, testEvent.getPrice());
     }

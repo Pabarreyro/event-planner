@@ -12,10 +12,10 @@ public class EventTest {
     }
 
     @Test
-    public void setGuests_setsGuestsCorrectly_0to25() {
+    public void setGuests_setsGuestsCorrectly_0to50() {
         Event testEvent = new Event("test");
-        testEvent.setGuests("0-25");
-        assertEquals("0-25", testEvent.getGuests());
+        testEvent.setGuests("0-50");
+        assertEquals("0-50", testEvent.getGuests());
     }
 
     @Test
@@ -63,4 +63,12 @@ public class EventTest {
         assertEquals(2, testEvent.getEntertainment().size());
     }
 
+    @Test
+    public void setPrice_setsPriceBasedOnGuests_400() {
+        Event testEvent = new Event("test");
+        Integer testPrice = new Integer(400);
+        testEvent.setGuests("50-100");
+        testEvent.setPrice();
+        assertEquals(testPrice, testEvent.getPrice());
+    }
 }

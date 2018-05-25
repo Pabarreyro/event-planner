@@ -82,13 +82,21 @@ public class Event {
         return entertainment;
     }
 
-    public void setPrice() {
-        Integer guestMultiplier = this.getGuestPrices(this.guests);
-        this.price = 200 * guestMultiplier;
+    public Integer getGuestPrice(String key) {
+        return guestPrices.get(key);
     }
 
-    public Integer getGuestPrices(String key) {
-        return guestPrices.get(key);
+    public Integer getFoodPrices(String key) {
+        return foodPrices.get(key);
+    }
+
+    public void setPrice() {
+        Integer guestMultiplier = this.getGuestPrice(this.guests);
+        Integer foodSubtotal = 0;
+        for (String food : this.food) {
+            foodSubtotal += this.getFoodPrices(food);
+        }
+        this.price = (200 + foodSubtotal) * guestMultiplier;
     }
 
     public Integer getPrice() {

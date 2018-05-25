@@ -11,4 +11,10 @@ public class EventTest {
         assertEquals("test", testEvent.getName());
     }
 
+    @Test
+    public void setGuests_setsGuestsCorrectly_0to25() {
+        Event testEvent = new Event("test");
+        testEvent.setGuests("0-25");
+        assertEquals("0-25", testEvent.getGuests());
+    }
 }

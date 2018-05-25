@@ -39,4 +39,12 @@ public class Event {
     public List<String> getFood() {
         return food;
     }
+
+    public void setDrink(String drink) {
+        this.drink.add(drink);
+    }
+
+    public List<String> getDrink() {
+        return drink;
+    }
 }

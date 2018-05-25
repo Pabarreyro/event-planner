@@ -82,4 +82,15 @@ public class EventTest {
         testEvent.setPrice();
         assertEquals(testPrice, testEvent.getPrice());
     }
+
+    @Test
+    public void setPrice_setsPriceBasedOnDrink_1900() {
+        Event testEvent = new Event("test");
+        Integer testPrice = 1900;
+        testEvent.setGuests("50-100");
+        testEvent.setDrink("beer & wine");
+        testEvent.setDrink("tea & coffee");
+        testEvent.setPrice();
+        assertEquals(testPrice, testEvent.getPrice());
+    }
 }

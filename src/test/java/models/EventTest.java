@@ -32,4 +32,20 @@ public class EventTest {
         testEvent.setFood("buffet");
         assertEquals(2, testEvent.getFood().size());
     }
+
+    @Test
+    public void setDrink_setsSingleDrinkRequestCorrectly_beerAndWine() {
+        Event testEvent = new Event("test");
+        testEvent.setDrink("beer & wine");
+        assertEquals("beer & wine", testEvent.getDrink().get(0));
+    }
+
+    @Test
+    public void setDrink_setsMultipleDrinkRequestsCorrectly_2() {
+        Event testEvent = new Event("test");
+        testEvent.setDrink("beer & wine");
+        testEvent.setDrink("tea & coffee");
+        assertEquals(2, testEvent.getDrink().size());
+    }
+
 }

@@ -48,4 +48,19 @@ public class EventTest {
         assertEquals(2, testEvent.getDrink().size());
     }
 
+    @Test
+    public void setEntertainment_setsSingleEntertainmentRequestCorrectly_liveBand() {
+        Event testEvent = new Event("test");
+        testEvent.setEntertainment("live band");
+        assertEquals("live band", testEvent.getEntertainment().get(0));
+    }
+
+    @Test
+    public void setEntertainment_setsMultipleEntertainmentRequestsCorrectly_2() {
+        Event testEvent = new Event("test");
+        testEvent.setEntertainment("live band");
+        testEvent.setEntertainment("dj");
+        assertEquals(2, testEvent.getEntertainment().size());
+    }
+
 }

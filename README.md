@@ -39,6 +39,7 @@ This application will prompt users interested in having an event planned through
 ## Setup/Installation Requirements
 
 * Clone [this repo](https://github.com/Pabarreyro/event-planner)
+* Install Java [SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) & [JRE](http://www.java.com/en/)
 * Run App.java in local IDE
 
 ## Known Bugs
@@ -51,7 +52,7 @@ For questions or to report a bug, start issue in this repo.
 
 ## Technologies Used
 
-* Java
+* Java 1.8
 
 
 ### License

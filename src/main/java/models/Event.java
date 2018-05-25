@@ -27,9 +27,9 @@ public class Event {
     }};
 
     private Map<String, Integer> drinkPrices = new HashMap<String, Integer>() {{
-        put("tea & coffee", 1);
-        put("beer & wine", 2);
-        put("full bar", 3);
+        put("tea & coffee", 250);
+        put("beer & wine", 500);
+        put("full bar", 1000);
     }};
 
     private Map<String, Integer> entertainmentPrices = new HashMap<String, Integer>() {{
@@ -90,13 +90,21 @@ public class Event {
         return foodPrices.get(key);
     }
 
+    public Integer getDrinkPrices(String key) {
+        return drinkPrices.get(key);
+    }
+
     public void setPrice() {
         Integer guestMultiplier = this.getGuestPrice(this.guests);
         Integer foodSubtotal = 0;
+        Integer drinkSubtotal = 0;
         for (String food : this.food) {
             foodSubtotal += this.getFoodPrices(food);
         }
-        this.price = (200 + foodSubtotal) * guestMultiplier;
+        for (String drink: this.drink) {
+            drinkSubtotal += this.getDrinkPrices(drink);
+        }
+        this.price = (200 + foodSubtotal + drinkSubtotal) * guestMultiplier;
     }
 
     public Integer getPrice() {

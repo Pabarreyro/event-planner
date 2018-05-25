@@ -1,7 +1,9 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Event {
     private String name;
@@ -10,6 +12,30 @@ public class Event {
     private List<String> drink;
     private List<String> entertainment;
     private Integer price;
+
+    private Map<String, Integer> guestPrices = new HashMap<String, Integer>() {{
+        put("0-50", 1);
+        put("50-100", 2);
+        put("100-150", 3);
+        put("150-200", 4);
+    }};
+
+    private Map<String, Integer> foodPrices = new HashMap<String, Integer>() {{
+        put("hors d'oeuvres", 500);
+        put("buffet", 1000);
+        put("full service", 2000);
+    }};
+
+    private Map<String, Integer> drinkPrices = new HashMap<String, Integer>() {{
+        put("tea & coffee", 1);
+        put("beer & wine", 2);
+        put("full bar", 3);
+    }};
+
+    private Map<String, Integer> entertainmentPrices = new HashMap<String, Integer>() {{
+        put("dj", 1);
+        put("live band", 2);
+    }};
 
     public Event(String name) {
         this.name = name;
@@ -54,5 +80,18 @@ public class Event {
 
     public List<String> getEntertainment() {
         return entertainment;
+    }
+
+    public void setPrice() {
+        Integer guestMultiplier = this.getGuestPrices(this.guests);
+        this.price = 200 * guestMultiplier;
+    }
+
+    public Integer getGuestPrices(String key) {
+        return guestPrices.get(key);
+    }
+
+    public Integer getPrice() {
+        return price;
     }
 }

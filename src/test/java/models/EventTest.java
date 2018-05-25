@@ -104,4 +104,18 @@ public class EventTest {
         testEvent.setPrice();
         assertEquals(testPrice, testEvent.getPrice());
     }
+
+    @Test
+    public void setCoupon_setsValidDiscountCoupon_partyOn() {
+        Event testEvent = new Event("test");
+        testEvent.setCoupon("coming out");
+        assertEquals("coming out", testEvent.getCoupon());
+    }
+
+    @Test
+    public void setCoupon_doesNotSetInvalidDiscountCoupon_none() {
+        Event testEvent = new Event("test");
+        testEvent.setCoupon("I'm a fraud");
+        assertEquals("none", testEvent.getCoupon());
+    }
 }

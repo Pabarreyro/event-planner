@@ -41,27 +41,27 @@ public class App {
                         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println(String.format("EVENT SUMMARY for %s", quotedEvent.getName()));
                         System.out.println("");
-                        System.out.println("Guests:\t\t\t\t\t");
+                        System.out.println("Guests:\t\t\t\t");
                         if (quotedEvent.getGuests() != null) {
                             Integer basePriceForDisplay =  200 * quotedEvent.getGuestPrices().get(quotedEvent.getGuests());
                             System.out.print(String.format("%s ($%d base)\n", quotedEvent.getGuests(), basePriceForDisplay));
                         }
                         System.out.println("");
-                        System.out.println("Food:\t\t\t\t\t");
+                        System.out.println("Food:\t\t\t\t");
                         if (quotedEvent.getFood().size() > 0) {
                             for (String food : quotedEvent.getFood()) {
-                                System.out.print(String.format("%s ($%d)\n", food , quotedEvent.getFoodPrices().get(food)));
+                                System.out.print(String.format("%s ($%d/ 50 guests)\n", food , quotedEvent.getFoodPrices().get(food)));
                             }
                         }
                         System.out.println("");
-                        System.out.println("Drinks:\t\t\t\t\t");
+                        System.out.println("Drinks:\t\t\t\t");
                         if (quotedEvent.getDrink().size() > 0) {
                             for (String drink : quotedEvent.getDrink()) {
-                                System.out.print(String.format("%s ($%d)\n", drink , quotedEvent.getDrinkPrices().get(drink)));
+                                System.out.print(String.format("%s ($%d/ 50 guests)\n", drink , quotedEvent.getDrinkPrices().get(drink)));
                             }
                         }
                         System.out.println("");
-                        System.out.println("Entertainment:\t\t\t\t\t");
+                        System.out.println("Entertainment:\t\t\t\t");
                         if (quotedEvent.getEntertainment().size() > 0) {
                             for (String entertainment : quotedEvent.getEntertainment()) {
                                 System.out.print(String.format("%s ($%d)\n", entertainment , quotedEvent.getEntertainmentPrices().get(entertainment)));
@@ -100,7 +100,7 @@ public class App {
                         } else if (navChoice.equals("food") || navChoice.equals("2")) {
                             selectFood = true;
                             while (selectFood) {
-                                System.out.println(String.format("What kind of food would you like served at %s?", quotedEvent.getName()));
+                                System.out.println(String.format("What kind of food would you like served at %s? (prices for 50 guests)", quotedEvent.getName()));
                                 for (Map.Entry<String, Integer> option : quotedEvent.getFoodPrices().entrySet())
                                 {
                                     System.out.print(String.format("%s ($%d)  ", option.getKey(), option.getValue()));
@@ -117,7 +117,7 @@ public class App {
                         } else if (navChoice.equals("drinks") || navChoice.equals("3")) {
                             selectDrinks = true;
                             while (selectDrinks) {
-                                System.out.println(String.format("What kind of drinks would you like served at %s?", quotedEvent.getName()));
+                                System.out.println(String.format("What kind of drinks would you like served at %s? (prices for 50 guests)", quotedEvent.getName()));
                                 for (Map.Entry<String, Integer> option : quotedEvent.getDrinkPrices().entrySet())
                                 {
                                     System.out.print(String.format("%s ($%d)  ", option.getKey(), option.getValue()));

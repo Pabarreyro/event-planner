@@ -52,7 +52,7 @@ public class Event {
         this.food = new ArrayList<>();
         this.drink = new ArrayList<>();
         this.entertainment = new ArrayList<>();
-        this.price = 200;
+        this.price = 0;
         this.coupon = "none";
 
     }
@@ -111,6 +111,14 @@ public class Event {
 
     public Map<String, Integer> getEntertainmentPrices() {
         return entertainmentPrices;
+    }
+
+    public Map<String, Integer> getFlatDiscounts() {
+        return flatDiscounts;
+    }
+
+    public Map<String, Double> getProportionalDiscounts() {
+        return proportionalDiscounts;
     }
 
     public void setPrice() {

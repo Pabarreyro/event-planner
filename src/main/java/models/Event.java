@@ -122,7 +122,10 @@ public class Event {
     }
 
     public void setPrice() {
-        Integer guestMultiplier = this.guestPrices.get(this.guests);
+        Integer guestMultiplier = 1;
+        if (this.guests != null) {
+            guestMultiplier = this.guestPrices.get(this.guests);
+        }
         Integer foodSubtotal = 0;
         Integer drinkSubtotal = 0;
         Integer entertainmentSubtotal = 0;
